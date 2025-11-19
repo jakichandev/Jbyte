@@ -54,7 +54,7 @@ export const Contact = () => {
               </Button>
             </a>
             <span className="text-white/50 text-sm font-p-1">
-              Format: PDF • Language: IT
+              Format: PDF • Language: EN
             </span>
           </div>
         </GlassContainer>

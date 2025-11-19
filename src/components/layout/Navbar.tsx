@@ -48,7 +48,7 @@ const Navbar = ({ navState = "sm" }: NavbarProps) => {
     <motion.nav
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 1, duration: 2, ease: "easeOut" }}
+      transition={{ duration: 2, ease: "easeOut" }}
       ref={navRef}
       onClick={toggleNav}
       onKeyDown={handleKeyDown}
