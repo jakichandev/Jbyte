@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
 import { Heading } from "../components/ui/Heading";
 import { projects } from "../data/projects";
@@ -29,9 +28,6 @@ export const Portfolio = () => {
         </main>
       </Section>
       <Footer />
-      <div>
-        <Outlet />
-      </div>
     </>
   );
 };

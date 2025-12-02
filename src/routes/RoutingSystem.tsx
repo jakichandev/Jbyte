@@ -13,12 +13,10 @@ const Router = createBrowserRouter([
   {
     path: "portfolio",
     element: <Portfolio />,
-    children: [
-      {
-        path: ":label",
-        element: <ProjectDetails />,
-      },
-    ],
+  },
+  {
+    path: "portfolio/:label",
+    element: <ProjectDetails />,
   },
   {
     path: "profile",
