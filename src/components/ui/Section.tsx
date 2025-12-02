@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 type SectionProps = {
   children: React.ReactNode;
   extraClasses?: string;
@@ -7,7 +6,7 @@ type SectionProps = {
 };
 
 const SECTION_STYLES = {
-  DEFAULT: "px-sections-mobile md:px-sections" as const,
+  DEFAULT: "px-sections-mobile md:px-sections box-border" as const,
   PY: {
     default: "py-12 md:py-22" as const,
     small: "py-8" as const,
@@ -23,14 +22,7 @@ export const Section = ({
   paddingY = "default",
 }: SectionProps) => {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 150 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{
-        type: "spring",
-        duration: 2,
-      }}
-      viewport={{ once: true }}
+    <section // Force re-mount dell'animazione
       className={
         custom
           ? `${extraClasses}`
@@ -38,6 +30,6 @@ export const Section = ({
       }
     >
       {children}
-    </motion.section>
+    </section>
   );
 };

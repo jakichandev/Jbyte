@@ -72,6 +72,7 @@
   --animate-navbar: navbar 5000ms ease-in-out forwards infinite;
   --animate-open: open 300ms ease-in;
   --animate-close: open 300ms ease-in reverse;
+  --animate-slide-from-top: slide-in-from-top 800ms ease-out forwards;
 
   /* Transitions */
   --transition-navbar: all 400ms ease-in-out;
@@ -106,6 +107,16 @@ body {
     rgba(0, 0, 0, 0) 0%,
     var(--color-theme-gray-900) 100%
   );
+}
+
+#glassContainer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+  z-index: -2;
 }
 
 @keyframes navbar {
@@ -162,6 +173,17 @@ body {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-from-top {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

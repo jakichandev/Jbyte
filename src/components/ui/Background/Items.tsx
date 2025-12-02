@@ -14,6 +14,7 @@ export const BackgroundItem1 = () => {
         src={back}
         alt="Decorative background illustration"
         className="object-cover absolute top-0 w-full h-full left-0 opacity-10"
+        loading="lazy"
       />
     </motion.div>
   );

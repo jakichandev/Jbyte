@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 interface GlassContainerProps {
   opacity?: "20" | "30" | "40" | "50" | "60" | "70" | "80" | "90";
@@ -7,17 +6,19 @@ interface GlassContainerProps {
   className?: string;
   variant?: "default" | "card" | "hero" | "image" | "custom";
   hover?: boolean;
+  backdropBlur?: boolean;
 }
 
 const GlassContainer: React.FC<GlassContainerProps> = ({
-  opacity = "60",
+  opacity = "50",
   children,
   className = "",
   variant = "default",
   hover = false,
+  backdropBlur = true,
 }) => {
   const baseStyles =
-    "overflow-hidden rounded-2xl border-2 border-theme-aqua-100/10 backdrop-blur-md";
+    "relative z-1 overflow-hidden rounded-2xl border-3 border-theme-aqua-100/10";
 
   const variants = {
     default: "p-6",
@@ -41,18 +42,18 @@ const GlassContainer: React.FC<GlassContainerProps> = ({
   };
 
   return (
-    <motion.div
-      initial={{ filter: "blur(5px)", opacity: 0 }}
-      whileInView={{ filter: "blur(0px)", opacity: 1 }}
-      transition={{ duration: 1.2 }}
-      viewport={{ once: true }}
-      className={`${baseStyles} ${variants[variant]} ${hoverStyles} ${className}`}
+    <div
+      id="glassContainer"
+      className={`${baseStyles} ${
+        variants[variant]
+      } ${hoverStyles} ${className} after:${
+        backgroundOpacity[opacity]
+      } after:background-gradient-to-br after:absolute after:inset-0 after:bg-gradient-to-br after:from-theme-aqua-800/30 after:via-theme-aqua-800/60 after:to-theme-gray-900/80 ${
+        backdropBlur ? "after:backdrop-blur-lg" : ""
+      } after:z-0`}
     >
-      <div
-        className={`absolute inset-0 bg-gradient-to-br from-theme-gray-800 via-theme-aqua-600 to-theme-gray-950 blur-3xl ${backgroundOpacity[opacity]} -z-10 transition-all duration-500`}
-      />
       {children}
-    </motion.div>
+    </div>
   );
 };
 

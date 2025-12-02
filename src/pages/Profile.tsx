@@ -26,8 +26,8 @@ const Avatar = ({ label, image }: Avatar) => {
 export const Profile = () => {
   return (
     <>
-      <ScrollRestoration />
       <Navbar navState="sm" />
+      <ScrollRestoration />
       <Section
         paddingY="large"
         extraClasses="grid grid-cols-1 lg:grid-cols-[2fr_4fr] text-txt font-p-1 gap-8 gap-y-3"

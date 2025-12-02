@@ -69,7 +69,7 @@ export const ProjectDetails = () => {
       <GlassContainer
         opacity="80"
         variant="default"
-        className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95vw] md:w-[80vw] lg:w-[70vw] max-h-[90vh] overflow-y-auto z-50 transition-all duration-300 ${animation}`}
+        className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95vw] md:w-[80vw] lg:w-[70vw] max-h-[90vh] overflow-y-auto z-100 transition-all duration-300 ${animation}`}
       >
         <div className="flex flex-col gap-6">
           {/* Header con titolo e pulsanti */}

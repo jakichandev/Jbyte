@@ -6,6 +6,8 @@ import { useRef, useState, useEffect } from "react";
 import { Section } from "../ui/Section";
 import square from "../../assets/svg/squares.svg";
 import { BluredSeparator } from "../ui/Items/separators";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../lib/motion/variants";
 
 export const ServiceCard = ({ label, img, desc, index }: Service) => {
   return (
@@ -73,10 +75,21 @@ export const Services = () => {
     <Section extraClasses="relative overflow-hidden z-20">
       <BluredSeparator position="top" />
       <div className="absolute bottom-0 left-0 w-full h-18 bg-gradient-to-t from-theme-gray-900 to-transparent z-10 "></div>
-
-      <Heading>What i'm able to do</Heading>
+      <motion.div
+        variants={fadeIn}
+        initial={"hidden"}
+        whileInView={"visible"}
+        viewport={{ once: true, amount: "all" }}
+        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+      >
+        <Heading>What i'm able to do</Heading>
+        <p className="text-xl font-p-1 text-txt text-center font-medium italic">
+          with the best technologies on the market
+        </p>
+      </motion.div>
       <div id="block-image" className="absolute right-0 top-0 opacity-45">
         <img
+          loading="lazy"
           className="w-[44rem] h-auto top-0 right-0 relative scale-y-[-1]"
           src={square}
           alt="Decorative squares"
@@ -89,9 +102,6 @@ export const Services = () => {
           alt="Decorative squares"
         />
       </div>
-      <p className="text-xl font-p-1 text-txt text-center font-medium italic">
-        with the best technologies on the market
-      </p>
 
       <div className="relative my-8">
         <div
@@ -100,14 +110,27 @@ export const Services = () => {
         >
           <div className="mx-auto flex justify-center whitespace-nowrap gap-8 w-[1100px]">
             {services.map((card, index) => (
-              <ServiceCard
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                variants={fadeIn}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.6,
+                  ease: "easeOut",
+                }}
                 key={index}
-                label={card.label}
-                img={card.img}
-                link={card.link}
-                desc={card.desc}
-                index={index}
-              />
+              >
+                <ServiceCard
+                  key={index}
+                  label={card.label}
+                  img={card.img}
+                  link={card.link}
+                  desc={card.desc}
+                  index={index}
+                />
+              </motion.div>
             ))}
           </div>
         </div>

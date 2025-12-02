@@ -5,7 +5,7 @@ import { routes } from "../../routes/routes";
 import instagram from "../../assets/svg/instagram.svg";
 import github from "../../assets/svg/github.svg";
 import expand from "../../assets/svg/expand.svg";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 interface NavbarProps {
   navState?: "sm" | "lg";
@@ -46,9 +46,9 @@ const Navbar = ({ navState = "sm" }: NavbarProps) => {
 
   return (
     <motion.nav
-      initial={{ opacity: 0, scale: 0.8 }}
+      initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 2, ease: "easeOut" }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       ref={navRef}
       onClick={toggleNav}
       onKeyDown={handleKeyDown}
