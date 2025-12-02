@@ -9,7 +9,7 @@ import { fadeIn } from "../../lib/motion/variants";
 
 export const Projects = () => {
   return (
-    <Section>
+    <Section extraClasses="relative mb-12 md:mb-0 overflow-hidden">
       <BluredSeparator position="top" height="md" />
       <img
         loading="lazy"

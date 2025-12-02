@@ -12,7 +12,10 @@ import { imageFadeIn } from "../../lib/motion/variants";
 const Hero = () => {
   const navigate = useNavigate();
   return (
-    <Section paddingY="custom" extraClasses="pt-4 pb-22 md:py-22 relative">
+    <Section
+      paddingY="custom"
+      extraClasses="pt-4 pb-22 md:py-22 relative overflow-hidden"
+    >
       <BluredSeparator position="top" height="lg" />
 
       <BackgroundItem1 />
@@ -22,6 +25,7 @@ const Hero = () => {
         initial={"hidden"}
         animate={"visible"}
         transition={{ duration: 2 }}
+        className="overflow-hidden"
       >
         <GlassContainer
           backdropBlur={false}
@@ -35,14 +39,14 @@ const Hero = () => {
             transition={{ duration: 2 }}
             src="./hero.png"
             alt="Jacopo"
-            className="absolute top-0 left-0 bottom-20 w-full h-full object-cover object-bottom pointer-events-none select-none"
+            className="absolute top-0 left-0 bottom-20 w-full h-full object-cover object-bottom pointer-events-none select-none overflow-hidden"
           />
           <div className="mb-8 text-theme-aqua-400 mx-2.5 text-center flex flex-col items-center justify-end relative z-20">
             <motion.div
               initial={{ opacity: 0, translateY: 20 }}
               animate={{ opacity: 1, translateY: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col items-center leading-tight"
+              className="flex flex-col items-center leading-tight overflow-x-hidden"
             >
               <Heading
                 level="custom"
