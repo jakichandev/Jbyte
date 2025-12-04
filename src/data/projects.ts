@@ -40,6 +40,7 @@ export const projects: Array<Project> = [
     ],
     links: {
       github: "https://github.com/jakichandev/vibeshare",
+      online: "https://vibeshare-gray.vercel.app/",
     },
   },
   {

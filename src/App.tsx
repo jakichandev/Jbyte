@@ -6,12 +6,10 @@ import { Skills } from "./components/sections/Skills";
 import { Projects } from "./components/sections/Projects";
 import Footer from "./components/layout/Footer";
 import { Contact } from "./components/sections/Contact";
-import { ScrollRestoration } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <ScrollRestoration />
       <Navbar navState="sm" />
       <Hero />
       <Services />
