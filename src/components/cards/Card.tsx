@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import { Heading } from "../ui/Heading";
 import GlassContainer from "../ui/GlassContainer";
 import type { ProjectCardProps } from "../../types/Project/Project";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export const Card = ({ children }: React.PropsWithChildren) => {
   return (
-    <GlassContainer opacity="80" className="relative text-center p-2 h-full">
-      <div className="relative z-20">{children}</div>
+    <GlassContainer opacity="80" className="relative text-center p-1 h-full">
+      <div className="relative z-20 h-full">{children}</div>
     </GlassContainer>
   );
 };
@@ -35,7 +36,7 @@ export const ProjectCard = ({
           </Heading>
           <div className="flex justify-center items-center gap-1.5 flex-wrap">
             {stack.map((tech) => (
-              <img
+              <LazyLoadImage
                 key={tech.name}
                 className="w-4 md:w-6"
                 src={`/${tech.icon}`}
@@ -50,7 +51,7 @@ export const ProjectCard = ({
 
   return (
     <Card>
-      <Link to={`/portfolio/${label}`} className="flex flex-col">
+      <Link to={`/portfolio/${label}`} className="flex flex-col h-full">
         <Heading
           level="tertiary"
           color="sunsetEnd"
@@ -59,10 +60,15 @@ export const ProjectCard = ({
         >
           {label}
         </Heading>
-        <img
+        <LazyLoadImage
           src={image !== "" ? `/${image}` : "/coming_soon.jpg"}
           alt={`${label} Screenshot`}
-          className="rounded-lg border-2 border-theme-aqua-900/30 w-full h-[16rem] md:h-[8rem] object-cover object-center"
+          className="rounded-lg border-2 border-theme-aqua-900/30 w-full h-[16rem] md:h-[16rem] object-cover object-center"
+          placeholder={
+            <div className="placeholder-image w-full h-full flex items-center justify-center">
+              ...
+            </div>
+          }
         />
         <p className="text-theme-aqua-100 font-p-1 text-sm my-4 text-left">
           {body}

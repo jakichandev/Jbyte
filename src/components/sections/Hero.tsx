@@ -8,6 +8,7 @@ import { BackgroundItem1 } from "../ui/Background/Items";
 import { BluredSeparator } from "../ui/Items/separators";
 import { motion } from "framer-motion";
 import { imageFadeIn } from "../../lib/motion/variants";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -33,20 +34,29 @@ const Hero = () => {
           variant="image"
           className="relative flex flex-col items-center justify-end min-h-[70vh]"
         >
-          <motion.img
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 2 }}
-            src="./hero.png"
-            alt="Jacopo"
-            className="absolute top-0 left-0 bottom-20 w-full h-full object-cover object-bottom pointer-events-none select-none overflow-hidden"
-          />
+            className="absolute top-0 left-0 bottom-20 w-full h-full object-cover object-bottom pointer-events-none select-none"
+          >
+            <LazyLoadImage
+              src="/hero.png"
+              alt="Hero Background"
+              className="w-full h-full object-cover object-bottom"
+              placeholder={
+                <div className="placeholder-image w-full h-full">
+                  loading...
+                </div>
+              }
+            />
+          </motion.div>
           <div className="mb-8 text-theme-aqua-400 mx-2.5 text-center flex flex-col items-center justify-end relative z-20">
             <motion.div
               initial={{ opacity: 0, translateY: 20 }}
               animate={{ opacity: 1, translateY: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col items-center leading-tight overflow-x-hidden"
+              className="flex flex-col items-center leading-tight"
             >
               <Heading
                 level="custom"
