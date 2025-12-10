@@ -60,7 +60,7 @@ export const Projects = () => {
           <span>Click the icon to see my GitHub profile</span>
         </p>
       </motion.div>
-      <div className="grid grid-cols-3 md:grid-cols-4 my-18 gap-x-4 gap-y-2 mx-auto justify-center">
+      <div className="grid grid-cols-3 grid-rows-3 md:grid-cols-4 my-18 gap-4 mx-auto justify-center">
         {projects.map((project, index) => (
           <motion.div
             key={project["label"]}
