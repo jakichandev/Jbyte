@@ -5,8 +5,8 @@ import type { ProjectCardProps } from "../../types/Project/Project";
 
 export const Card = ({ children }: React.PropsWithChildren) => {
   return (
-    <GlassContainer opacity="80" className="relative text-center p-2">
-      <div className="relative z-20 p-1.5 md:p-2.5">{children}</div>
+    <GlassContainer opacity="80" className="relative text-center p-2 h-full">
+      <div className="relative z-20">{children}</div>
     </GlassContainer>
   );
 };
@@ -62,7 +62,7 @@ export const ProjectCard = ({
         <img
           src={image !== "" ? `/${image}` : "/coming_soon.jpg"}
           alt={`${label} Screenshot`}
-          className="rounded-lg border-2 border-white/30 w-full h-[16rem] md:h-[12rem] object-cover object-center"
+          className="rounded-lg border-2 border-theme-aqua-900/30 w-full h-[16rem] md:h-[8rem] object-cover object-center"
         />
         <p className="text-theme-aqua-100 font-p-1 text-sm my-4 text-left">
           {body}

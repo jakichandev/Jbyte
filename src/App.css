@@ -76,6 +76,10 @@
 
   /* Transitions */
   --transition-navbar: all 400ms ease-in-out;
+
+  --breakpoint-md: 768px;
+  --breakpoint-sm: 480px;
+  --breakpoint-xmd: 960px;
 }
 
 ::-webkit-scrollbar {

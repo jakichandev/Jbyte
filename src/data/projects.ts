@@ -44,6 +44,19 @@ export const projects: Array<Project> = [
     },
   },
   {
+    label: "FreeCodeCamp Currency Converter",
+    image: "currency_converter.png",
+    body: "A currency converter app built as part of the FreeCodeCamp curriculum using React and Styled Components",
+    stack: [
+      { icon: "react.svg", name: "React" },
+      { icon: "styled_components.svg", name: "Styled Components" },
+      { icon: "typescript.svg", name: "Typescript" },
+    ],
+    links: {
+      github: "https://github.com/jakichandev/FreeCodeCamp-CurrencyConverter",
+    },
+  },
+  {
     label: "Jbyte Portfolio",
     image: "jbyte.png",
     body: "My personal portfolio built with React and TailwindCSS to showcase my skills and projects.",

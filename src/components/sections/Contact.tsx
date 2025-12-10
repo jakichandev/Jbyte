@@ -30,7 +30,11 @@ export const Contact = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <GlassContainer variant="default" opacity="60" className="p-6 md:p-8">
+          <GlassContainer
+            variant="default"
+            opacity="60"
+            className="p-6 md:p-8 h-full"
+          >
             <div className="flex flex-col items-center text-center gap-4">
               <p className="font-p-1 text-white/80 font-semibold">
                 Do you have a project in mind or want to get in touch?

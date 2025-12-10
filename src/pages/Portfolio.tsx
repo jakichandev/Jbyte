@@ -13,7 +13,7 @@ export const Portfolio = () => {
       <Navbar navState="sm" />
       <Section paddingY="large">
         <Heading>portfolio</Heading>
-        <main className="grid grid-cols-1 md:grid-cols-4 grid-rows-[repeat(minmax(100px, 1fr), auto)] gap-x-4 gap-y-2 my-6">
+        <main className="grid grid-cols-1 md:grid-cols-2 xmd:grid-cols-3 grid-rows-[repeat(minmax(100px, 1fr), auto)] gap-x-4 gap-y-2 my-6">
           {projects.map((project) => (
             <ProjectCard
               key={project.label}
