@@ -72,7 +72,7 @@ const Navbar = ({ navState = "sm" }: NavbarProps) => {
         className="flex items-center shrink-0 w-full justify-between py-4"
         role="banner"
       >
-        <Logo navbarState={navActualState} width={90} />
+        <Logo navbarState={navActualState} width={100} />
         <div role="button" className="relative">
           {navActualState === "sm" && (
             <span aria-hidden="true" className="absolute inset-0 glow-pulse" />
