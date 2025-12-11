@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { routes } from "../../routes/routes";
 import instagram from "../../assets/svg/instagram.svg";
 import github from "../../assets/svg/github.svg";
-import expand from "../../assets/svg/expand.svg";
 import { motion } from "motion/react";
 
 interface NavbarProps {
@@ -58,7 +57,7 @@ const Navbar = ({ navState = "sm" }: NavbarProps) => {
       aria-expanded={navActualState === "lg"}
       className={`fixed top-4 md:top-2.5 bg-theme-gray-900/80 z-[100] rounded-2xl border-2 border-white/30 px-2 ml-sections-mobile md:ml-sections overflow-hidden flex flex-col items-center transition-all duration-500 ease-in-out overflow-y-auto cursor-pointer shadow-xl focus:outline-none focus:ring-2 focus:ring-theme-aqua-500 focus:ring-offset-2 focus:ring-offset-theme-gray-950 ${
         navActualState === "sm"
-          ? "w-30 md:w-40 h-auto"
+          ? "w-30 md:w-35 h-auto"
           : "w-60 md:w-70 h-[480px]"
       }`}
     >
@@ -72,24 +71,10 @@ const Navbar = ({ navState = "sm" }: NavbarProps) => {
         className="flex items-center shrink-0 w-full justify-between py-4"
         role="banner"
       >
-        <Logo navbarState={navActualState} width={100} />
-        <div role="button" className="relative">
-          {navActualState === "sm" && (
-            <span aria-hidden="true" className="absolute inset-0 glow-pulse" />
-          )}
-          <img
-            src={expand}
-            alt={
-              navActualState === "sm"
-                ? "Apri menu di navigazione"
-                : "Chiudi menu di navigazione"
-            }
-            className={`w-6 h-6 transition-transform duration-500 ease-in-out ${
-              navActualState === "lg" ? "rotate-180" : "rotate-0"
-            }`}
-            aria-hidden="true"
-          />
-        </div>
+        <Logo
+          navbarState={navActualState}
+          width={navActualState === "sm" ? 100 : 150}
+        />
       </div>
 
       {/* Wrapper animato per contenuto */}
