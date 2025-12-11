@@ -10,7 +10,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Section paddingY="custom">
+    <Section paddingY="custom" extraClasses="pt-18 pb-3">
       <footer>
         <GlassContainer opacity="20" className="relative bottom-8">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">

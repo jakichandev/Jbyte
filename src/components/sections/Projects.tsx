@@ -60,7 +60,7 @@ export const Projects = () => {
           <span>Click the icon to see my GitHub profile</span>
         </p>
       </motion.div>
-      <div className="grid grid-cols-3 grid-rows-3 md:grid-cols-4 my-18 gap-4 mx-auto justify-center">
+      <div className="grid grid-cols-2 grid-rows-2 sm:grid-cols-3 lg:grid-cols-4 my-18 gap-4 mx-auto justify-center">
         {projects.map((project, index) => (
           <motion.div
             key={project["label"]}
@@ -82,7 +82,7 @@ export const Projects = () => {
           </motion.div>
         ))}
       </div>
-      <BluredSeparator position="bottom" height="md" />
+      <BluredSeparator position="bottom" />
     </Section>
   );
 };

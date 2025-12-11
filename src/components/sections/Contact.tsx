@@ -9,7 +9,7 @@ import { fadeIn } from "../../lib/motion/variants";
 
 export const Contact = () => {
   return (
-    <Section extraClasses="mb-12 md:mb-0">
+    <Section paddingY="default">
       <motion.div
         variants={fadeIn}
         initial={"hidden"}
