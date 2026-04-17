@@ -10,7 +10,7 @@ type Contact = {
 };
 
 type Remote = "remote";
-type Year = number;
+type Year = number | "now";
 
 interface TimeInterval {
   from: Year;

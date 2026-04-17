@@ -26,6 +26,13 @@ export const profile: Profile = {
       stage: false,
       when: { from: 2020, to: 2025 },
     },
+    {
+      name: "QZR Studio",
+      where: "Lucca, Italia",
+      duration: 1,
+      stage: false,
+      when: { from: 2026, to: "now" },
+    },
   ],
   aboutMe: `After five years as a video technician in a service
 dedicated to events and conferences, I decided to try to create
