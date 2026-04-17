@@ -33,29 +33,21 @@ const Navbar = ({ navState = "sm" }: NavbarProps) => {
     setNavState(navActualState === "sm" ? "lg" : "sm");
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      toggleNav();
-    }
-    if (e.key === "Escape" && navActualState === "lg") {
-      setNavState("sm");
-    }
-  };
-
   return (
     <motion.nav
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
       ref={navRef}
-      onClick={toggleNav}
-      onKeyDown={handleKeyDown}
-      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Escape" && navActualState === "lg") {
+          setNavState("sm");
+        }
+      }}
       role="navigation"
       aria-label="Menu di navigazione principale"
       aria-expanded={navActualState === "lg"}
-      className={`fixed top-4 md:top-2.5 bg-theme-gray-900/80 z-[100] rounded-2xl border-2 border-white/30 px-2 ml-sections-mobile md:ml-sections overflow-hidden flex flex-col items-center transition-all duration-500 ease-in-out overflow-y-auto cursor-pointer shadow-xl focus:outline-none focus:ring-2 focus:ring-theme-aqua-500 focus:ring-offset-2 focus:ring-offset-theme-gray-950 ${
+      className={`fixed top-4 md:top-2.5 bg-theme-gray-900/80 z-[100] rounded-2xl border-2 border-white/30 px-2 ml-sections-mobile md:ml-sections overflow-hidden flex flex-col items-center transition-all duration-500 ease-in-out overflow-y-auto shadow-xl focus:outline-none ${
         navActualState === "sm"
           ? "w-30 md:w-35 h-auto"
           : "w-60 md:w-70 h-[480px]"
@@ -67,15 +59,21 @@ const Navbar = ({ navState = "sm" }: NavbarProps) => {
         }`}
       ></div>
 
-      <div
-        className="flex items-center shrink-0 w-full justify-between py-4"
-        role="banner"
+      <button
+        type="button"
+        onClick={toggleNav}
+        className="flex items-center shrink-0 w-full justify-between py-4 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-theme-aqua-500 focus-visible:ring-offset-2 focus-visible:ring-offset-theme-gray-950 rounded-xl"
+        aria-label={
+          navActualState === "lg"
+            ? "Chiudi menu di navigazione"
+            : "Apri menu di navigazione"
+        }
       >
         <Logo
           navbarState={navActualState}
           width={navActualState === "sm" ? 100 : 150}
         />
-      </div>
+      </button>
 
       {/* Wrapper animato per contenuto */}
       <div
@@ -93,7 +91,7 @@ const Navbar = ({ navState = "sm" }: NavbarProps) => {
           {routes.map((route, index) => (
             <li
               key={route.id}
-              className={`w-full px-4 rounded-lg border-2 border-theme-gray-600/20 hover:border-theme-gray-200/50 focus-within:bg-theme-gray-200/50 relative overflow-hidden transition-all duration-300 ${
+              className={`w-full rounded-lg border-2 border-theme-gray-600/20 hover:border-theme-gray-200/50 focus-within:bg-theme-gray-200/50 relative overflow-hidden transition-all duration-300 ${
                 navActualState === "lg"
                   ? "animate-slide-in opacity-100 translate-x-0"
                   : "opacity-0 -translate-x-4"
@@ -106,7 +104,8 @@ const Navbar = ({ navState = "sm" }: NavbarProps) => {
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-theme-aqua-800/20 via-theme-gray-800/40 to-theme-gray-900/60 -z-10 blur-lg"></div>
               <Link
                 to={route.path}
-                className="flex items-center gap-3 text-sm hover:text-white focus:text-white my-2 transition-colors focus:outline-none"
+                onClick={() => setNavState("sm")}
+                className="flex w-full items-center gap-3 text-sm hover:text-white focus:text-white px-4 py-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-theme-aqua-500 rounded-lg"
                 aria-label={`Vai alla pagina ${route.name}`}
               >
                 <span
@@ -144,6 +143,7 @@ const Navbar = ({ navState = "sm" }: NavbarProps) => {
               to={"https://www.instagram.com/jacopogianfaldoni/"}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => setNavState("sm")}
               aria-label="Visita il mio profilo Instagram (si apre in una nuova scheda)"
             >
               <img
@@ -158,6 +158,7 @@ const Navbar = ({ navState = "sm" }: NavbarProps) => {
               to={"https://github.com/jakichandev"}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => setNavState("sm")}
               aria-label="Visita il mio profilo GitHub (si apre in una nuova scheda)"
             >
               <img
