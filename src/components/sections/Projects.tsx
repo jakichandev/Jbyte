@@ -84,8 +84,12 @@ export const Projects = () => {
           </motion.div>
         ))}
       </div>
-      <div className="mt-8 flex justify-center">
-        <Link to="/portfolio" aria-label="View all portfolio projects">
+      <div className="relative z-20 mt-8 flex justify-center">
+        <Link
+          to="/portfolio"
+          aria-label="View all portfolio projects"
+          className="inline-flex"
+        >
           <Button as="span" level={2} color="sunsetEnd">
             View all projects
           </Button>

@@ -4,7 +4,7 @@ type SeparatorProps = {
 };
 
 const styles = {
-  base: "absolute w-full left-0 z-10",
+  base: "pointer-events-none absolute w-full left-0 z-10",
   position: {
     top: "top-0",
     bottom: "bottom-0",
