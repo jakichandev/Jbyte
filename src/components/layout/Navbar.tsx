@@ -47,7 +47,7 @@ const Navbar = ({ navState = "sm" }: NavbarProps) => {
       role="navigation"
       aria-label="Menu di navigazione principale"
       aria-expanded={navActualState === "lg"}
-      className={`fixed top-4 md:top-2.5 bg-theme-gray-900/80 z-[100] rounded-2xl border-2 border-white/30 px-2 ml-sections-mobile md:ml-sections overflow-hidden flex flex-col items-center transition-all duration-500 ease-in-out overflow-y-auto shadow-xl focus:outline-none ${
+      className={`fixed top-4 md:top-5 bg-theme-gray-900/80 z-[100] rounded-2xl border-2 border-white/30 px-2 ml-sections-mobile md:ml-sections overflow-hidden flex flex-col items-center transition-all duration-500 ease-in-out overflow-y-auto shadow-xl focus:outline-none ${
         navActualState === "sm"
           ? "w-30 md:w-35 h-auto"
           : "w-60 md:w-70 h-[480px]"
