@@ -16,7 +16,13 @@ const Avatar = ({ label, image }: Avatar) => {
         src={image}
         alt="Jacopo Gianfaldoni"
       />
-      <Heading level="custom" className="text-lg font-bold">
+      <Heading
+        level="custom"
+        color="white"
+        weight="normal"
+        uppercase={false}
+        className="text-lg"
+      >
         {label}
       </Heading>
     </div>
@@ -32,11 +38,7 @@ export const Profile = () => {
         paddingY="large"
         extraClasses="grid grid-cols-1 lg:grid-cols-[2fr_4fr] text-txt font-p-1 gap-8 gap-y-3"
       >
-        <GlassContainer
-          opacity="70"
-          variant="custom"
-          className="overflow-x-auto"
-        >
+        <GlassContainer variant="plain" className="overflow-x-auto">
           <div className="p-3 min-w-max">
             <Avatar
               label={`${profile.name} ${profile.surname}`}
@@ -48,7 +50,7 @@ export const Profile = () => {
                 <FlagOutlined /> {profile.nationality}
               </li>
             </ul>
-            <ul className="flex flex-col text-sm text-theme-aqua-100 list-none font-p-1 font-bold gap-2 mt-4">
+            <ul className="flex flex-col text-sm text-theme-aqua-100 list-none font-p-1 font-normal gap-2 mt-4">
               {profile.contacts.map((contact, index) => (
                 <li
                   key={index}
@@ -64,42 +66,60 @@ export const Profile = () => {
         </GlassContainer>
 
         <div className="flex flex-col gap-3">
-          <GlassContainer opacity="70" variant="default">
-            <Heading level="custom" className="font-normal text-2xl">
+          <GlassContainer variant="soft" className="p-5 md:p-6">
+            <Heading
+              level="custom"
+              fontFamily="fontP"
+              color="white"
+              weight="normal"
+              tone="muted"
+              uppercase={false}
+              className="text-xl"
+            >
               About Me
             </Heading>
-            <div className="relative mt-1.5">
+            <div className="relative mt-3">
               <p className="text-white/90 leading-6 text-md">
                 {profile.aboutMe}
               </p>
             </div>
           </GlassContainer>
 
-          <GlassContainer opacity="70" variant="default">
-            <Heading level="custom" className="font-normal text-2xl">
+          <GlassContainer variant="soft" className="p-5 md:p-6">
+            <Heading
+              level="custom"
+              fontFamily="fontP"
+              color="white"
+              weight="normal"
+              tone="muted"
+              uppercase={false}
+              className="text-xl"
+            >
               Working Experience
             </Heading>
             <div className="flex flex-col gap-4 mt-3">
               {profile.workExperience.map((experience) => (
                 <GlassContainer
                   key={experience.name}
-                  opacity="50"
-                  variant="card"
+                  variant="plain"
                   hover={true}
-                  className="border-white/30"
+                  className="border-white/30 p-4 md:p-5"
                 >
                   <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <span className="text-theme-aqua-500 font-semibold">
+                    <span className="text-theme-aqua-500 font-normal">
                       {experience.when.from}
                     </span>
                     <span className="text-white/60">-</span>
-                    <span className="text-theme-aqua-500 font-semibold">
+                    <span className="text-theme-aqua-500 font-normal">
                       {experience.when.to}
                     </span>
                   </div>
                   <Heading
                     fontFamily="fontP"
                     level="custom"
+                    color="white"
+                    weight="normal"
+                    uppercase={false}
                     className="text-md"
                   >
                     {experience.name}

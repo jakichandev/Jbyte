@@ -7,9 +7,14 @@ import {
   ToolOutlined,
 } from "@ant-design/icons";
 import GlassContainer from "../ui/GlassContainer";
-import particular from "../../assets/svg/particular.svg";
 import { motion } from "framer-motion";
-import { fadeIn } from "../../lib/motion/variants";
+import {
+  defaultTransition,
+  fadeIn,
+  getStaggerDelay,
+  viewportOnce,
+} from "../../lib/motion/variants";
+import { DecorativeSquares } from "../ui/Background/DecorativeSquares";
 interface TechStack {
   programmingLangs: Tech[];
   frameworks: Tech[];
@@ -51,10 +56,11 @@ const TechSkill = ({ techs, label, icon }: Techs) => {
       variants={fadeIn}
       initial={"hidden"}
       whileInView={"visible"}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true, amount: 0.3 }}
+      transition={defaultTransition}
+      viewport={viewportOnce}
+      className="mb-6 md:mb-8 last:mb-0"
     >
-      <GlassContainer variant="custom" className="my-8 p-5 md:p-6" opacity="40">
+      <GlassContainer variant="plain" className="p-5 md:p-6">
         <article className="flex flex-col gap-6">
           {/* Header con icona e titolo */}
           <div className="flex items-center gap-3 pb-4 border-b border-white/20">
@@ -64,7 +70,11 @@ const TechSkill = ({ techs, label, icon }: Techs) => {
             <Heading
               fontFamily="fontP"
               level="custom"
-              className="text-xl md:text-2xl font-semibold text-white"
+              color="white"
+              weight="normal"
+              tone="muted"
+              uppercase={false}
+              className="text-lg md:text-xl"
             >
               {label}
             </Heading>
@@ -76,8 +86,11 @@ const TechSkill = ({ techs, label, icon }: Techs) => {
               <motion.li
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.4 }}
-                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  ...defaultTransition,
+                  delay: getStaggerDelay(index),
+                }}
+                viewport={viewportOnce}
                 key={index}
                 className="group flex flex-col items-center gap-2 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(78,205,196,0.3)]"
               >
@@ -88,7 +101,7 @@ const TechSkill = ({ techs, label, icon }: Techs) => {
                     className="w-8 h-8 md:w-10 md:h-10 object-contain brightness-110 drop-shadow-[0_0_8px_rgba(78,205,196,0.4)]"
                   />
                 </div>
-                <span className="text-white/90 text-xs md:text-sm font-p-1 font-semibold text-center group-hover:text-theme-aqua-400 transition-colors">
+                <span className="text-white/90 text-xs md:text-sm font-p-1 font-normal text-center group-hover:text-theme-aqua-400 transition-colors">
                   {tech.name}
                 </span>
               </motion.li>
@@ -103,22 +116,31 @@ const TechSkill = ({ techs, label, icon }: Techs) => {
 export const Skills = () => {
   return (
     <Section extraClasses="relative overflow-x-hidden">
+      <DecorativeSquares
+        position="-right-32 top-1/2 -translate-y-1/2"
+        className="w-[32rem] rotate-90"
+        opacity={0.2}
+      />
+
       <motion.div
         variants={fadeIn}
         initial={"hidden"}
         whileInView={"visible"}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="mb-12 text-center"
+        transition={defaultTransition}
+        viewport={viewportOnce}
+        className="mb-8 md:mb-10 text-center"
       >
-        <Heading>Technical Skills</Heading>
+        <Heading
+          fontFamily="fontP"
+          color="white"
+          weight="normal"
+          tone="muted"
+          uppercase={false}
+          className="text-xl md:text-2xl"
+        >
+          Technical Skills
+        </Heading>
       </motion.div>
-      <div className="absolute top-4/6 -translate-y-4/6 left-0 w-[46rem] -rotate-90 -translate-x-40 opacity-20">
-        <img src={particular} alt="Decorative detail" />
-      </div>
-      <div className="absolute top-2/6 -translate-y-2/6 right-0 w-[46rem] rotate-90 translate-x-40 opacity-40">
-        <img src={particular} alt="Decorative detail" />
-      </div>
       <TechSkill
         key={"pl"}
         icon={<ToolOutlined />}

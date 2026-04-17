@@ -4,25 +4,32 @@ import type { Service } from "../../types/Service/Service";
 import { services } from "../../data/services";
 import { useRef, useState, useEffect } from "react";
 import { Section } from "../ui/Section";
-import square from "../../assets/svg/squares.svg";
 import { BluredSeparator } from "../ui/Items/separators";
 import { motion } from "framer-motion";
-import { fadeIn } from "../../lib/motion/variants";
+import {
+  defaultTransition,
+  fadeIn,
+  getStaggerDelay,
+  viewportOnce,
+} from "../../lib/motion/variants";
+import { DecorativeSquares } from "../ui/Background/DecorativeSquares";
 
 export const ServiceCard = ({ label, img, desc, index }: Service) => {
   return (
     <GlassContainer
-      opacity={"30"}
-      className="relative box-border p-2.5 shrink-0 snap-center w-[22rem] border-2 border-opacity h-full"
+      variant="soft"
+      className="relative box-border p-2.5 shrink-0 snap-center w-[22rem] h-full"
       key={index}
     >
       <div className="relative z-20 h-[25rem]">
         <Heading
-          fontFamily="fontH"
-          color="sunsetEnd"
+          fontFamily="fontP"
+          color="white"
           level="custom"
           weight="normal"
-          className="text-2xl md:text-3xl text-center mt-4 mb-2"
+          tone="muted"
+          uppercase={false}
+          className="text-xl md:text-2xl text-center mt-4 mb-2"
         >
           {label}
         </Heading>
@@ -34,7 +41,7 @@ export const ServiceCard = ({ label, img, desc, index }: Service) => {
           className={`w-48 h-48 rounded-full mx-auto my-4 bg-center inset-shadow-sm inset-shadow-txt`}
         ></div>
 
-        <p className="mx-auto font-p-1 text-white text-center my-7 whitespace-break-spaces text-sm font-bold">
+        <p className="mx-auto font-p-1 text-white text-center my-7 whitespace-break-spaces text-sm font-light">
           {desc}
         </p>
       </div>
@@ -79,31 +86,31 @@ export const Services = () => {
         variants={fadeIn}
         initial={"hidden"}
         whileInView={"visible"}
-        viewport={{ once: true, amount: "all" }}
-        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        viewport={viewportOnce}
+        transition={defaultTransition}
       >
-        <Heading>What i'm able to do</Heading>
-        <p className="text-xl font-p-1 text-txt text-center font-medium italic">
+        <Heading
+          fontFamily="fontP"
+          color="white"
+          weight="normal"
+          tone="muted"
+          uppercase={false}
+          className="text-xl md:text-2xl"
+        >
+          What i'm able to do
+        </Heading>
+        <p className="text-xl font-p-1 text-txt text-center font-light italic">
           with the best technologies on the market
         </p>
       </motion.div>
-      <div id="block-image" className="absolute right-0 top-0 opacity-45">
-        <img
-          loading="lazy"
-          className="w-[44rem] h-auto top-0 right-0 relative scale-y-[-1]"
-          src={square}
-          alt="Decorative squares"
-        />
-      </div>
-      <div className="absolute left-0 bottom-0 scale-x-[-1] opacity-45">
-        <img
-          className="w-[44rem] h-auto"
-          src={square}
-          alt="Decorative squares"
-        />
-      </div>
+      <DecorativeSquares
+        position="-right-24 top-0"
+        className="w-[34rem]"
+        imageClassName="scale-y-[-1]"
+        opacity={0.3}
+      />
 
-      <div className="relative my-8">
+      <div className="relative mt-8 md:mt-10">
         <div
           ref={scrollContainerRef}
           className="overflow-x-auto w-full p-4 scroll-smooth snap-x snap-mandatory"
@@ -114,11 +121,10 @@ export const Services = () => {
                 initial="hidden"
                 whileInView="visible"
                 variants={fadeIn}
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={viewportOnce}
                 transition={{
-                  duration: 0.8,
-                  delay: index * 0.6,
-                  ease: "easeOut",
+                  ...defaultTransition,
+                  delay: getStaggerDelay(index),
                 }}
                 key={index}
               >

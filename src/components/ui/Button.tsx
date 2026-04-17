@@ -8,16 +8,23 @@ interface ButtonInterface {
 }
 
 const BtnStyles = {
-  base: "font-headings-2 px-3 py-1.5 uppercase rounded-lg relative overflow-hidden flex items-center justify-center hover:scale-105 cursor-pointer ring-2",
+  base: "group relative isolate overflow-hidden rounded-lg border px-4 py-2 font-p-1 inline-flex items-center justify-center cursor-pointer transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-theme-gray-950 disabled:pointer-events-none disabled:opacity-50",
   levels: {
-    1: "text-2xl md:text-3xl font-bold",
-    2: "text-xl md:text-2xl font-semibold",
-    3: "text-lg md:text-xl font-medium",
+    1: "text-base md:text-lg font-normal",
+    2: "text-sm md:text-base font-normal",
+    3: "text-sm font-normal",
   },
   colors: {
-    aqua: "text-theme-aqua-500 hover:bg-theme-aqua-400 ring-theme-aqua-500",
+    aqua:
+      "border-theme-aqua-300/35 bg-theme-aqua-500/10 text-theme-aqua-100 shadow-[0_0_22px_rgba(34,221,202,0.12)] hover:-translate-y-0.5 hover:border-theme-aqua-300/60 hover:bg-theme-aqua-500/18 hover:text-white hover:shadow-[0_0_28px_rgba(34,221,202,0.2)] focus-visible:ring-theme-aqua-400",
     sunsetEnd:
-      "text-theme-sunset-end-300 hover:bg-theme-sunset-end-400 ring-theme-sunset-end-500",
+      "border-theme-sunset-end-300/40 bg-theme-sunset-end-500/10 text-theme-sunset-end-100 shadow-[0_0_22px_rgba(233,64,22,0.12)] hover:-translate-y-0.5 hover:border-theme-sunset-end-300/70 hover:bg-theme-sunset-end-500/18 hover:text-white hover:shadow-[0_0_28px_rgba(233,64,22,0.2)] focus-visible:ring-theme-sunset-end-400",
+  },
+  accents: {
+    aqua:
+      "from-theme-aqua-400/20 via-transparent to-theme-aqua-900/30 group-hover:opacity-100",
+    sunsetEnd:
+      "from-theme-sunset-end-400/20 via-transparent to-theme-sunset-end-900/30 group-hover:opacity-100",
   },
 };
 
@@ -35,8 +42,12 @@ const Button = ({
       onClick={onClick}
       type={type}
     >
-      <div className="absolute top-0 left-0 w-full h-full via-20% bg-gradient-to-br from-theme-aqua-500 via-theme-gray-900 to-theme-aqua-800 -z-10 blur-sm opacity-90"></div>
-      {children}
+      <span
+        className={`absolute inset-0 -z-10 bg-gradient-to-br opacity-70 transition-opacity duration-200 ${BtnStyles.accents[color]}`}
+      />
+      <span className="relative z-10 flex items-center justify-center gap-inherit">
+        {children}
+      </span>
     </button>
   );
 };

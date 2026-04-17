@@ -5,19 +5,39 @@ import { Link } from "react-router-dom";
 import { MailOutlined, DownloadOutlined } from "@ant-design/icons";
 import { Heading } from "../ui/Heading";
 import { motion } from "motion/react";
-import { fadeIn } from "../../lib/motion/variants";
+import {
+  defaultTransition,
+  fadeIn,
+  getStaggerDelay,
+  viewportOnce,
+} from "../../lib/motion/variants";
+import { DecorativeSquares } from "../ui/Background/DecorativeSquares";
 
 export const Contact = () => {
   return (
-    <Section paddingY="default">
+    <Section paddingY="default" extraClasses="relative overflow-hidden">
+      <DecorativeSquares
+        position="-left-28 bottom-0"
+        className="w-[32rem] scale-x-[-1]"
+        opacity={0.2}
+      />
+
       <motion.div
         variants={fadeIn}
         initial={"hidden"}
-        animate={"visible"}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        whileInView={"visible"}
+        transition={defaultTransition}
+        viewport={viewportOnce}
       >
-        <Heading level="primary" className="mb-10">
+        <Heading
+          fontFamily="fontP"
+          level="primary"
+          color="white"
+          weight="normal"
+          tone="muted"
+          uppercase={false}
+          className="mb-8 md:mb-10 text-xl md:text-2xl"
+        >
           Get in Touch
         </Heading>
       </motion.div>
@@ -26,17 +46,19 @@ export const Contact = () => {
         <motion.div
           variants={fadeIn}
           initial={"hidden"}
-          animate={"visible"}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
+          whileInView={"visible"}
+          transition={{
+            ...defaultTransition,
+            delay: getStaggerDelay(1),
+          }}
+          viewport={viewportOnce}
         >
           <GlassContainer
-            variant="default"
-            opacity="60"
+            variant="highlight"
             className="p-6 md:p-8 h-full"
           >
             <div className="flex flex-col items-center text-center gap-4">
-              <p className="font-p-1 text-white/80 font-semibold">
+              <p className="font-p-1 text-white/80 font-light">
                 Do you have a project in mind or want to get in touch?
                 <br />
                 Write to me, I respond quickly.
@@ -46,9 +68,9 @@ export const Contact = () => {
                 aria-label="Go to contact page"
                 className="inline-block"
               >
-                <Button color="aqua" level={2} className="gap-2">
-                  <MailOutlined />
+                <Button color="aqua" level={2} className="gap-5">
                   Contact Me
+                  <MailOutlined />
                 </Button>
               </Link>
             </div>
@@ -59,13 +81,16 @@ export const Contact = () => {
         <motion.div
           variants={fadeIn}
           initial={"hidden"}
-          animate={"visible"}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
+          whileInView={"visible"}
+          transition={{
+            ...defaultTransition,
+            delay: getStaggerDelay(2),
+          }}
+          viewport={viewportOnce}
         >
-          <GlassContainer variant="default" opacity="60" className="p-6 md:p-8">
+          <GlassContainer variant="highlight" className="p-6 md:p-8">
             <div className="flex flex-col items-center text-center gap-4">
-              <p className="font-p-1 text-white/80 font-semibold">
+              <p className="font-p-1 text-white/80 font-light">
                 Do you want my updated CV?
                 <br />
                 Download it in PDF format.
@@ -77,9 +102,9 @@ export const Contact = () => {
                 className="inline-block"
                 rel="noopener noreferrer"
               >
-                <Button color="aqua" level={2} className="gap-2">
-                  <DownloadOutlined />
+                <Button color="aqua" level={2} className="gap-5">
                   Download CV
+                  <DownloadOutlined />
                 </Button>
               </a>
               <span className="text-white/50 text-sm font-p-1">

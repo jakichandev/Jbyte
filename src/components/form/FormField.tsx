@@ -20,12 +20,12 @@ export const FormField: React.FC<FieldProps> = ({
   };
 
   const inputClasses =
-    "bg-txt-2 rounded-lg p-2 text-bg-dark font-medium border-2 border-transparent focus:border-theme-aqua-900 focus:outline-none transition-colors";
+    "bg-txt-2 rounded-lg p-2 text-bg-dark font-normal border-2 border-transparent focus:border-theme-aqua-900 focus:outline-none transition-colors";
 
   if (inputType === "textarea") {
     return (
       <div className="flex flex-col gap-1.5">
-        <label className="font-bold text-white">{label}</label>
+        <label className="font-normal text-white">{label}</label>
         <textarea
           name={name}
           onChange={handleChange}
@@ -39,7 +39,7 @@ export const FormField: React.FC<FieldProps> = ({
 
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="font-bold text-white">{label}</label>
+      <label className="font-normal text-white">{label}</label>
       <input
         name={name}
         type={inputType}

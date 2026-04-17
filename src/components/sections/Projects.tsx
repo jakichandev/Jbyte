@@ -2,85 +2,94 @@ import { Heading } from "../ui/Heading";
 import { projects } from "../../data/projects";
 import { ProjectCard } from "../cards/Card";
 import { Section } from "../ui/Section";
-import lines from "../../assets/svg/lines.svg";
+import Button from "../ui/Button";
 import { BluredSeparator } from "../ui/Items/separators";
 import { motion } from "motion/react";
-import { fadeIn } from "../../lib/motion/variants";
+import { Link } from "react-router-dom";
+import {
+  defaultTransition,
+  fadeIn,
+  getStaggerDelay,
+  viewportOnce,
+} from "../../lib/motion/variants";
+import { DecorativeSquares } from "../ui/Background/DecorativeSquares";
 
 export const Projects = () => {
+  const featuredProjects = projects.filter((project) => project.featured);
+
   return (
-    <Section extraClasses="relative mb-12 md:mb-0 overflow-hidden">
+    <Section extraClasses="relative overflow-hidden">
       <BluredSeparator position="top" height="md" />
-      <img
-        loading="lazy"
-        src={lines}
-        alt="Decorative lines"
-        className="absolute inset-0 -z-10 w-80 h-full opacity-10"
-      />
-      <img
-        loading="lazy"
-        src={lines}
-        alt="Decorative lines"
-        className="absolute top-0 left-100 -z-10 w-80 h-full opacity-10 rotate-90"
-      />
-      <img
-        loading="lazy"
-        src={lines}
-        alt="Decorative lines"
-        className="absolute top-0 right-0 -z-10 w-80 h-full opacity-10"
-      />
-      <img
-        loading="lazy"
-        src={lines}
-        alt="Decorative lines"
-        className="absolute bottom-0 right-100 -z-10 w-80 h-full opacity-10 rotate-90"
-      />
-      <img
-        loading="lazy"
-        src={lines}
-        alt="Decorative lines"
-        className="absolute bottom-0 right-[calc(50%-(320px/2))] -z-10 w-80 h-full opacity-10"
+      <DecorativeSquares
+        position="-left-28 bottom-0"
+        className="w-[34rem] scale-x-[-1]"
+        opacity={0.25}
       />
 
       <motion.div
         variants={fadeIn}
         initial={"hidden"}
-        animate={"visible"}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        whileInView={"visible"}
+        transition={defaultTransition}
+        viewport={viewportOnce}
       >
-        <Heading level="primary">My Projects</Heading>
+        <Heading
+          fontFamily="fontP"
+          level="primary"
+          weight="normal"
+          uppercase={false}
+          className="text-xl md:text-2xl"
+        >
+          My Projects
+        </Heading>
 
-        <p className="text-txt font-p-1 gap-2 mt-4 font-medium flex items-center justify-center text-sm md:text-normal">
+        <p className="text-txt font-p-1 gap-2 mt-4 font-light flex items-center justify-center text-sm md:text-normal">
           <span>
-            <a href="/">
-              <img className="w-7" src="/github.svg"></img>
+            <a
+              href="https://github.com/jakichandev"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Jacopo's GitHub profile"
+            >
+              <img className="w-7" src="/github.svg" alt="" />
             </a>
           </span>
           <span>Click the icon to see my GitHub profile</span>
         </p>
       </motion.div>
-      <div className="grid grid-cols-2 grid-rows-2 sm:grid-cols-3 lg:grid-cols-4 my-18 gap-4 mx-auto justify-center">
-        {projects.map((project, index) => (
+      <div className="grid grid-cols-2 sm:grid-cols-3 mt-8 md:mt-10 gap-4 mx-auto justify-center">
+        {featuredProjects.map((project, index) => (
           <motion.div
-            key={project["label"]}
+            key={project.slug}
             variants={fadeIn}
             initial={"hidden"}
             whileInView={"visible"}
-            transition={{ duration: 0.6, delay: index * 0.4 }}
-            viewport={{ once: true }}
+            transition={{
+              ...defaultTransition,
+              delay: getStaggerDelay(index),
+            }}
+            viewport={viewportOnce}
           >
             <ProjectCard
-              key={project["label"]}
+              key={project.slug}
               mode="compact"
-              label={project["label"]}
-              body={project["body"]}
-              image={project["image"]}
-              stack={project["stack"]}
-              links={project["links"]}
+              slug={project.slug}
+              label={project.label}
+              body={project.body}
+              image={project.image}
+              stack={project.stack}
+              links={project.links}
+              featured={project.featured}
             />
           </motion.div>
         ))}
+      </div>
+      <div className="mt-8 flex justify-center">
+        <Link to="/portfolio" aria-label="View all portfolio projects">
+          <Button level={2} color="sunsetEnd">
+            View all projects
+          </Button>
+        </Link>
       </div>
       <BluredSeparator position="bottom" />
     </Section>

@@ -26,8 +26,7 @@ export const Form = () => {
     return (
       <section className="min-h-screen py-24 md:px-sections flex items-center justify-center">
         <GlassContainer
-          variant="hero"
-          opacity="70"
+          variant="highlight"
           className="w-full max-w-3xl flex flex-col items-center justify-center px-5 py-20 md:py-24"
         >
           <FormLoader />
@@ -40,8 +39,7 @@ export const Form = () => {
     return (
       <section className="min-h-screen py-24 md:px-sections flex items-center justify-center">
         <GlassContainer
-          variant="hero"
-          opacity="70"
+          variant="highlight"
           className="w-full max-w-3xl flex flex-col items-center justify-center px-5 py-20 md:py-24"
         >
           <div className="flex flex-col items-center gap-6">
@@ -91,8 +89,7 @@ export const Form = () => {
   return (
     <>
       <GlassContainer
-        variant="hero"
-        opacity="70"
+        variant="highlight"
         className="w-full max-w-3xl flex flex-col items-center px-5 py-8 md:py-12"
       >
         <form

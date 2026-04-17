@@ -15,7 +15,7 @@ const Router = createBrowserRouter([
     element: <Portfolio />,
   },
   {
-    path: "portfolio/:label",
+    path: "portfolio/:slug",
     element: <ProjectDetails />,
   },
   {

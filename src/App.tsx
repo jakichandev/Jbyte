@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./components/layout/Navbar";
 import Hero from "./components/sections/Hero";
+import { AboutPreview } from "./components/sections/AboutPreview";
 import { Services } from "./components/sections/Services";
 import { Skills } from "./components/sections/Skills";
 import { Projects } from "./components/sections/Projects";
@@ -12,6 +13,7 @@ function App() {
     <>
       <Navbar navState="sm" />
       <Hero />
+      <AboutPreview />
       <Services />
       <Skills />
       <Projects />

@@ -10,9 +10,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Section paddingY="custom" extraClasses="pt-18 pb-3">
+    <Section paddingY="custom" extraClasses="pt-3 pb-3">
       <footer>
-        <GlassContainer opacity="20" className="relative bottom-8">
+        <GlassContainer variant="plain" className="relative bottom-8 p-6">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Colonna 1: Brand */}
             <div className="flex flex-col gap-4">
@@ -50,7 +50,15 @@ const Footer = () => {
 
             {/* Colonna 2: Navigazione */}
             <div className="flex flex-col gap-4">
-              <Heading color="sunsetEnd" level="tertiary">
+              <Heading
+                fontFamily="fontP"
+                color="white"
+                level="tertiary"
+                weight="normal"
+                tone="subtle"
+                uppercase={false}
+                className="text-lg md:text-xl"
+              >
                 Navigation
               </Heading>
               <ul className="flex flex-col gap-3">
@@ -70,7 +78,15 @@ const Footer = () => {
 
             {/* Colonna 3: Contatti */}
             <div className="flex flex-col gap-4">
-              <Heading color="sunsetEnd" level="tertiary">
+              <Heading
+                fontFamily="fontP"
+                color="white"
+                level="tertiary"
+                weight="normal"
+                tone="subtle"
+                uppercase={false}
+                className="text-lg md:text-xl"
+              >
                 Contacts
               </Heading>
               <div className="flex flex-col gap-3 text-white/70 font-p-1">

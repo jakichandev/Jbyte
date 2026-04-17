@@ -2,9 +2,12 @@ interface HeadingType {
   className?: string;
   children?: React.ReactNode;
   level?: "primary" | "secondary" | "tertiary" | "custom";
-  color?: "aqua" | "sunsetEnd";
+  color?: "aqua" | "sunsetEnd" | "white";
   weight?: "bold" | "normal" | "thin";
   fontFamily?: "fontH" | "fontP";
+  tone?: "strong" | "muted" | "subtle";
+  uppercase?: boolean;
+  as?: "h1" | "h2" | "h3" | "h4";
 }
 
 const HEADING_STYLES = {
@@ -14,11 +17,15 @@ const HEADING_STYLES = {
   custom: "",
   aqua: "text-theme-aqua-400",
   sunsetEnd: "text-theme-sunset-end-400",
-  bold: "font-bold",
+  white: "text-white",
+  bold: "font-normal",
   normal: "font-normal",
-  thin: "font-thin",
+  thin: "font-light",
   fontH: "font-headings-2",
   fontP: "font-p-1",
+  strong: "opacity-100",
+  muted: "opacity-75",
+  subtle: "opacity-60",
 };
 
 export const Heading: React.FC<HeadingType> = ({
@@ -28,12 +35,19 @@ export const Heading: React.FC<HeadingType> = ({
   color = "aqua",
   weight = "bold",
   fontFamily = "fontH",
+  tone = "strong",
+  uppercase = true,
+  as: Tag = "h2",
 }) => {
   return (
-    <h2
-      className={`uppercase ${HEADING_STYLES[fontFamily]} ${HEADING_STYLES[color]} ${HEADING_STYLES[level]} ${HEADING_STYLES[weight]} ${className}`}
+    <Tag
+      className={`${uppercase ? "uppercase" : ""} ${
+        HEADING_STYLES[fontFamily]
+      } ${HEADING_STYLES[color]} ${HEADING_STYLES[level]} ${
+        HEADING_STYLES[weight]
+      } ${HEADING_STYLES[tone]} ${className}`}
     >
       {children}
-    </h2>
+    </Tag>
   );
 };

@@ -13,7 +13,16 @@ const ContactMePage = () => {
         paddingY="large"
         extraClasses="flex flex-col items-center gap-8 md:gap-12"
       >
-        <Heading>Tell me about your idea</Heading>
+        <Heading
+          fontFamily="fontP"
+          color="white"
+          weight="normal"
+          tone="muted"
+          uppercase={false}
+          className="text-xl md:text-2xl"
+        >
+          Tell me about your idea
+        </Heading>
         <Form />
       </Section>
       <Footer />

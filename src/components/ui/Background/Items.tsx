@@ -1,5 +1,6 @@
 import back from "../../../assets/svg/back.svg";
 import { motion } from "framer-motion";
+import { imageTransition } from "../../../lib/motion/variants";
 
 export const BackgroundItem1 = () => {
   return (
@@ -8,7 +9,7 @@ export const BackgroundItem1 = () => {
       className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 2 }}
+      transition={imageTransition}
     >
       <img
         src={back}
