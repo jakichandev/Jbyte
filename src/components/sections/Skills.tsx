@@ -74,7 +74,7 @@ const TechSkill = ({ techs, label, icon }: Techs) => {
               weight="normal"
               tone="muted"
               uppercase={false}
-              className="text-lg md:text-xl"
+              className="text-xl"
             >
               {label}
             </Heading>
@@ -136,7 +136,7 @@ export const Skills = () => {
           weight="normal"
           tone="muted"
           uppercase={false}
-          className="text-xl md:text-2xl"
+          className="text-2xl"
         >
           Technical Skills
         </Heading>

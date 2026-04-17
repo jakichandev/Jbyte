@@ -29,10 +29,7 @@ export const AboutPreview = () => {
         transition={defaultTransition}
         viewport={viewportOnce}
       >
-        <GlassContainer
-          variant="soft"
-          className="mx-auto max-w-5xl p-6 md:p-8"
-        >
+        <GlassContainer variant="soft" className="w-full p-6 md:p-8">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-[auto_1fr] md:items-center md:gap-8">
             <img
               src={profile.avatar.image}
@@ -47,7 +44,7 @@ export const AboutPreview = () => {
                 weight="normal"
                 tone="muted"
                 uppercase={false}
-                className="text-xl md:text-2xl"
+                className="text-2xl"
               >
                 A frontend developer with a visual background
               </Heading>

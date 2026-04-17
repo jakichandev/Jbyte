@@ -36,7 +36,7 @@ export const Contact = () => {
           weight="normal"
           tone="muted"
           uppercase={false}
-          className="mb-8 md:mb-10 text-xl md:text-2xl"
+          className="mb-8 md:mb-10 text-2xl"
         >
           Get in Touch
         </Heading>
@@ -68,7 +68,7 @@ export const Contact = () => {
                 aria-label="Go to contact page"
                 className="inline-block"
               >
-                <Button color="aqua" level={2} className="gap-5">
+                <Button as="span" color="aqua" level={2}>
                   Contact Me
                   <MailOutlined />
                 </Button>
@@ -102,7 +102,7 @@ export const Contact = () => {
                 className="inline-block"
                 rel="noopener noreferrer"
               >
-                <Button color="aqua" level={2} className="gap-5">
+                <Button as="span" color="aqua" level={2}>
                   Download CV
                   <DownloadOutlined />
                 </Button>

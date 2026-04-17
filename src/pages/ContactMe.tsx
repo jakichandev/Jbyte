@@ -19,7 +19,7 @@ const ContactMePage = () => {
           weight="normal"
           tone="muted"
           uppercase={false}
-          className="text-xl md:text-2xl"
+          className="text-2xl"
         >
           Tell me about your idea
         </Heading>

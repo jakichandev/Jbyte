@@ -75,7 +75,7 @@ export const ProjectDetails = () => {
                 color="white"
                 weight="normal"
                 uppercase={false}
-                className="text-xl md:text-2xl"
+                className="text-2xl"
               >
                 {project ? project.label : "Project not found"}
               </Heading>

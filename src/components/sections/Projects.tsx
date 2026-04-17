@@ -38,7 +38,7 @@ export const Projects = () => {
           level="primary"
           weight="normal"
           uppercase={false}
-          className="text-xl md:text-2xl"
+          className="text-2xl"
         >
           My Projects
         </Heading>
@@ -86,7 +86,7 @@ export const Projects = () => {
       </div>
       <div className="mt-8 flex justify-center">
         <Link to="/portfolio" aria-label="View all portfolio projects">
-          <Button level={2} color="sunsetEnd">
+          <Button as="span" level={2} color="sunsetEnd">
             View all projects
           </Button>
         </Link>

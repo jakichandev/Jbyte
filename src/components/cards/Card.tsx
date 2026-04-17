@@ -53,7 +53,7 @@ export const ProjectCard = ({
               color="sunsetEnd"
               weight="normal"
               uppercase={false}
-              className="text-center text-lg md:text-xl leading-7"
+              className="text-center text-xl leading-7"
             >
               {label}
             </Heading>
@@ -82,7 +82,7 @@ export const ProjectCard = ({
           color="sunsetEnd"
           weight="normal"
           uppercase={false}
-          className="text-center text-lg md:text-xl mb-2"
+          className="text-center text-xl mb-2"
         >
           {label}
         </Heading>

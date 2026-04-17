@@ -57,7 +57,7 @@ const Footer = () => {
                 weight="normal"
                 tone="subtle"
                 uppercase={false}
-                className="text-lg md:text-xl"
+                className="text-xl"
               >
                 Navigation
               </Heading>
@@ -85,7 +85,7 @@ const Footer = () => {
                 weight="normal"
                 tone="subtle"
                 uppercase={false}
-                className="text-lg md:text-xl"
+                className="text-xl"
               >
                 Contacts
               </Heading>

@@ -29,7 +29,7 @@ export const ServiceCard = ({ label, img, desc, index }: Service) => {
           weight="normal"
           tone="muted"
           uppercase={false}
-          className="text-xl md:text-2xl text-center mt-4 mb-2"
+          className="text-2xl text-center mt-4 mb-2"
         >
           {label}
         </Heading>
@@ -95,7 +95,7 @@ export const Services = () => {
           weight="normal"
           tone="muted"
           uppercase={false}
-          className="text-xl md:text-2xl"
+          className="text-2xl"
         >
           What i'm able to do
         </Heading>

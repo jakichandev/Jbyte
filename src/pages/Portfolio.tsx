@@ -88,7 +88,7 @@ export const Portfolio = () => {
           weight="normal"
           tone="muted"
           uppercase={false}
-          className="text-xl md:text-2xl"
+          className="text-2xl"
         >
           Portfolio
         </Heading>

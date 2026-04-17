@@ -18,6 +18,7 @@ const Avatar = ({ label, image }: Avatar) => {
       />
       <Heading
         level="custom"
+        fontFamily="fontP"
         color="white"
         weight="normal"
         uppercase={false}
@@ -74,7 +75,7 @@ export const Profile = () => {
               weight="normal"
               tone="muted"
               uppercase={false}
-              className="text-xl"
+              className="text-2xl"
             >
               About Me
             </Heading>
@@ -93,7 +94,7 @@ export const Profile = () => {
               weight="normal"
               tone="muted"
               uppercase={false}
-              className="text-xl"
+              className="text-2xl"
             >
               Working Experience
             </Heading>

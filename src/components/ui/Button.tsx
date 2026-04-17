@@ -5,6 +5,7 @@ interface ButtonInterface {
   color?: "aqua" | "sunsetEnd";
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
+  as?: "button" | "span";
 }
 
 const BtnStyles = {
@@ -30,25 +31,28 @@ const BtnStyles = {
 
 const Button = ({
   children,
-  className,
+  className = "",
   onClick,
   type = "button",
   color = "aqua",
   level = 1,
+  as = "button",
 }: ButtonInterface) => {
+  const Component = as;
+  const buttonProps = as === "button" ? { onClick, type } : {};
+
   return (
-    <button
+    <Component
       className={`${BtnStyles.base} ${BtnStyles.levels[level]} ${BtnStyles.colors[color]} ${className}`}
-      onClick={onClick}
-      type={type}
+      {...buttonProps}
     >
       <span
         className={`absolute inset-0 -z-10 bg-gradient-to-br opacity-70 transition-opacity duration-200 ${BtnStyles.accents[color]}`}
       />
-      <span className="relative z-10 flex items-center justify-center gap-inherit">
+      <span className="relative z-10 flex items-center justify-center gap-5">
         {children}
       </span>
-    </button>
+    </Component>
   );
 };
 
